@@ -1,126 +1,123 @@
 ﻿# ModProjectTracker
 
-ModProjectTracker is an Android administration app for managing projects, budgets and expenses. It is designed for administrators to create and monitor projects, track expenses, manage approval workflows, and keep local data in sync with cloud services.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Platform: Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
+[![Language: Java](https://img.shields.io/badge/Language-Java-007396?logo=openjdk&logoColor=white)](https://www.java.com/)
 
-This README provides a concise overview, build instructions, configuration notes, and guidance for publishing the repository to GitHub.
+ModProjectTracker is an Android administration app for managing projects, budgets, and expenses. It is designed for administrators to create and monitor projects, track expense lifecycles, review dashboard metrics, and keep local data synchronized with cloud services.
 
-## Highlights / Features
+## Overview
 
-- Dashboard with project and expense KPIs (total projects, active projects, budgets, budget utilization, pending/paid expenses)
-- Project CRUD: create, view, edit, delete projects
-- Expense tracking with lifecycle states (Draft → Pending Approval → Approved → Paid; Reject option)
-- Background periodic sync implemented with WorkManager and a SyncWorker/SyncCoordinator
-- Local SQLite storage with a `DatabaseHelper` and two-way sync merge logic
-- Optional AI assistant integration (AiAssistantActivity + GeminiService hooks)
+This project provides a clean admin-focused workflow for project tracking, including:
 
-## Tech stack
+- project management and budget monitoring
+- expense submission, approval, and payment tracking
+- dashboard summaries for quick decision-making
+- background synchronization for updated data
+- an optional AI assistant entry point for support and guidance
 
-- Android, Java
-- Jetpack components (RecyclerView, WorkManager, AppCompat, Material Components)
-- Gradle build (wrapper included)
-- Local persistence: SQLite via `DatabaseHelper`
+## Key Features
 
-## Repository layout (selected)
+- Dashboard with project and expense KPIs
+- Project CRUD: create, view, edit, and delete projects
+- Expense lifecycle tracking: Draft → Pending Approval → Approved → Paid
+- WorkManager-based periodic sync with retry/backoff support
+- Local SQLite storage through `DatabaseHelper`
+- Optional AI assistant integration via `AiAssistantActivity` and `GeminiService`
 
-- app/ — Android module (source code, resources and app-level Gradle config)
-- gradle/ & gradlew(.bat) — Gradle wrapper
-- docs/ — design, changelogs and project state documents
+## Screenshots
+
+Add screenshots here before publishing to GitHub:
+
+- Dashboard
+- Project list and detail screens
+- Project form
+- Expense management screens
+- AI assistant screen
+
+## Tech Stack
+
+- Android
+- Java
+- AndroidX
+- Material Components
+- RecyclerView
+- WorkManager
+- SQLite
+- Gradle wrapper
+
+## Project Structure
+
+- `app/` — Android application module
+- `docs/` — project documentation and phase/status notes
+- `gradle/` — Gradle wrapper files
+- `legacy/` — archived backup files and historical sources
+- `scripts/` — utility scripts
 
 ## Prerequisites
 
-- Android Studio (recommended) or command-line Android SDK/Gradle tools
+- Android Studio recommended
 - JDK 11 or later
-- A connected Android device or emulator for runtime testing
+- Android SDK installed
+- Android emulator or physical device
 
-## Build & Run
+## Setup and Run
 
-Recommended: open the project in Android Studio and run the `app` module.
+1. Clone or open the project in Android Studio.
+2. Let Gradle sync and download dependencies.
+3. Run the `app` module on an emulator or connected device.
 
-Command-line (PowerShell on Windows):
+PowerShell commands for Windows:
 
 ```powershell
 cd C:\Users\Admin\AndroidStudioProjects\ModProjectTracker
-.\gradlew.bat assembleDebug    # build an APK
-.\gradlew.bat installDebug     # install to a connected device/emulator
+.\gradlew.bat assembleDebug
+.\gradlew.bat installDebug
 ```
 
-Run tests (if present):
+## Testing
+
+Run the available tests from the project root:
 
 ```powershell
 .\gradlew.bat test
 .\gradlew.bat connectedAndroidTest
 ```
 
+If you change UI flows or device-specific logic, verify the app manually on an emulator or physical device as well.
+
 ## Configuration
 
-- `app/google-services.json`: present in this workspace. Replace with your own Firebase/Google configuration if you use Firebase features.
-- Secrets and keys: do not commit private keys or credentials. Use local config or CI secrets.
+- `app/google-services.json` is included in this workspace. Replace it with your own configuration if you use Firebase or Google services.
+- Keep secrets, API keys, and private credentials out of source control.
+- Use local configuration or CI secrets for sensitive values.
 
-## GitHub: create & push repository
+## Security
 
-Option A — Create repo on GitHub website and push locally:
+If you discover a vulnerability or sensitive configuration issue, please report it privately. See `SECURITY.md` for details.
 
-1. Create a new repository on GitHub (https://github.com/new) named e.g. `ModProjectTracker`.
-2. From the project root run (PowerShell):
+## GitHub Ready Notes
 
-```powershell
-cd C:\Users\Admin\AndroidStudioProjects\ModProjectTracker
-git init
-git add .
-git commit -m "Initial commit: ModProjectTracker"
-git branch -M main
-git remote add origin https://github.com/USERNAME/REPO.git
-git push -u origin main
-```
+Before publishing the repository:
 
-Option B — Using GitHub CLI (`gh`):
-
-```powershell
-cd C:\Users\Admin\AndroidStudioProjects\ModProjectTracker
-gh repo create REPO --public --source=. --remote=origin --push
-```
-
-Notes:
-- Replace `USERNAME/REPO` or `REPO` with your information.
-- For private repositories, use `--private` with `gh` or choose the private setting in the web UI.
-- If using HTTPS, you may be prompted for credentials or a Personal Access Token (PAT).
-
-## .gitignore recommendation
-
-If the repo does not already include a `.gitignore`, add one and include typical Android ignores:
-
-- *.iml
-- .gradle/
-- /local.properties
-- /build/
-- /app/build/
-- .idea/
-- *.keystore
-
-GitHub provides a standard Android `.gitignore` template that is recommended.
+- review the `.gitignore` file
+- verify that no secrets are committed
+- use a clear repository description
+- keep commit messages short and meaningful
+- add screenshots to make the project page look more professional
 
 ## Contributing
 
-- Use branches and pull requests for feature development.
-- Add a `CONTRIBUTING.md` and code style notes if you wish to accept external contributions.
+Contributions are welcome. Please see `CONTRIBUTING.md` for branch naming, testing, pull request, and security guidelines.
 
 ## License
 
-Add a `LICENSE` file with your chosen license (MIT, Apache-2.0, etc.). If unsure, MIT is a permissive option.
+This project is licensed under the MIT License. See `LICENSE` for details.
 
-## Project documentation and status
+## Documentation
 
-See the `docs/` directory for canonical documentation and the included auto-generated phase progress. The project already contains a phase-tracker and detailed status files (for example `docs/PROJECT_CURRENT_STATE_FULL.md`).
+Additional project notes and historical status documents are available in the `docs/` folder.
 
----
-
-If you want, I can next:
-
-1) Create a recommended `.gitignore` file in the repository,
-2) Draft a `CONTRIBUTING.md` and a sample `LICENSE` (MIT),
-3) Provide step-by-step help to actually run the Git commands locally (or run them for you if you give permission and provide the remote URL/credentials).
-
-Tell me which of the above you want me to do next.
 
 
 

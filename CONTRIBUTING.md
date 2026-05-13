@@ -1,29 +1,57 @@
 # Contributing to ModProjectTracker
 
-Thanks for your interest in contributing! We welcome issues, bug reports, and pull requests. Please follow these simple guidelines to help us review and merge your contribution quickly.
+Thanks for your interest in contributing to ModProjectTracker. Issues, bug reports, feature ideas, and pull requests are welcome.
 
-1. Report bugs
-   - Open an issue with a clear title and steps to reproduce.
-   - Include device/emulator details and Android Studio / Gradle version when relevant.
+## 1) Report issues clearly
 
-2. Work on a branch
-   - Create a descriptive branch name: `feature/<short-desc>` or `fix/<short-desc>`.
+- Open a GitHub issue with a short, descriptive title.
+- Include steps to reproduce, expected behavior, and actual behavior.
+- Add device/emulator details and relevant Android Studio or Gradle version information when possible.
 
-3. Code style
-   - Keep Java code consistent with the existing project style.
-   - Use descriptive commit messages. Start with a short summary, followed by details.
+## 2) Work on a branch
 
-4. Tests
-   - Add unit tests where applicable. Run `./gradlew test` locally before opening a PR.
+- Create a branch with a clear name, for example:
+  - `feature/<short-description>`
+  - `fix/<short-description>`
+  - `docs/<short-description>`
+- Keep the branch focused on a single task when possible.
 
-5. Pull requests
-   - Open a pull request from your branch into `main` (or the target branch described in the issue).
-   - Describe what the change does and reference any related issues.
+## 3) Follow code style
 
-6. Security
-   - Do not commit secrets, API keys, or private credentials. Use environment variables or CI secret store.
+- Keep Java code consistent with the existing style in the project.
+- Use descriptive names for classes, methods, variables, and commits.
+- Prefer small, readable changes over large unrelated edits.
 
-If you'd like help picking a task, open an issue with the label `help wanted`.
+## 4) Test your changes
 
-Thank you for contributing!
+- Add or update unit tests when it makes sense.
+- From the project root on Windows, run:
+
+```powershell
+.\gradlew.bat test
+```
+
+- If your change affects UI or device behavior, also run instrumentation tests when available:
+
+```powershell
+.\gradlew.bat connectedAndroidTest
+```
+
+## 5) Open a pull request
+
+- Open a pull request from your feature branch into the target branch.
+- Include a short summary of what changed and why.
+- Link the related issue if there is one.
+- Mention any setup, migration, or testing notes reviewers should know.
+
+## 6) Keep the project secure
+
+- Do not commit secrets, API keys, private credentials, or local machine settings.
+- Keep sensitive values out of source control and use secure configuration methods instead.
+
+## Need help?
+
+If you'd like help choosing a task, open an issue and label it `help wanted`.
+
+Thanks for contributing!
 
