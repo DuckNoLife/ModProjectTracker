@@ -1,0 +1,121 @@
+{
+  "lastUpdated": "2026-04-21",
+  "overallStatus": "Phase 3 gate is closed (Sync + Cloudinary); Phase 4 includes expense detail and dashboard KPIs; Phase 5 has AI preload context and Gemini REST integration.",
+  "phases": [
+    {
+      "id": "1",
+      "name": "Local models + SQLite",
+      "status": "Done"
+    },
+    {
+      "id": "2",
+      "name": "Admin Project CRUD",
+      "status": "Done"
+    },
+    {
+      "id": "3",
+      "name": "Cloudinary + Sync",
+      "status": "Done"
+    },
+    {
+      "id": "4",
+      "name": "Expense UI + Approval",
+      "status": "Partial (lifecycle and core flows are implemented; full approval history/workflow is pending)"
+    },
+    {
+      "id": "5",
+      "name": "Gemini AI",
+      "status": "Partial (context-preloaded assistant is implemented; hardening is pending)"
+    },
+    {
+      "id": "6-8",
+      "name": "Flutter user app",
+      "status": "Not Yet"
+    }
+  ],
+  "currentProgress": [
+    "Local SQLite authentication for admin users is stable.",
+    "Project CRUD, validation, and owner permissions are working.",
+    "Two-way sync merges by lastModified and supports soft-delete tombstones.",
+    "WorkManager periodic sync with retry/backoff is active.",
+    "Phase 3 gate evidence is documented in docs/PHASE3_GATE_EVIDENCE.md.",
+    "Cloudinary flow includes configuration checks and clear error handling.",
+    "Expense CRUD per project is implemented with list/form/detail screens.",
+    "Expense lifecycle transitions are available: Draft -> Pending Approval -> Approved -> Paid (Reject at Pending).",
+    "Expense list supports search and sort.",
+    "Dashboard shows expense overview and budget KPIs.",
+    "AI assistant composes a preloaded role + context prompt in AiAssistantActivity.",
+    "GeminiService sends REST requests with retry/backoff and rate-limit cooldown handling.",
+    "Default Gemini model is gemini-2.5-flash, configurable by GEMINI_MODEL.",
+    "Expense title validation is enforced with inline required/min-length checks.",
+    "SyncMergePolicyTest covers offline create/update, cloud newer, and tombstone newer scenarios."
+  ],
+  "completedFeatures": [
+    "Local login/register/session",
+    "Project list/detail/form with validation",
+    "Soft-delete schema (isDeleted/deletedAt) for Project and Expense",
+    "SyncCoordinator merge logic for local/cloud and tombstones",
+    "SyncWorker periodic background sync with exponential backoff",
+    "Admin expense CRUD per project",
+    "Expense lifecycle status UI (Draft/Pending Approval/Approved/Paid/Rejected)",
+    "Expense title field with inline validation",
+    "Expense status filter in Expense List",
+    "Expense detail transitions",
+    "Expense search/sort in Expense List",
+    "Dashboard expense overview counters",
+    "Dashboard KPIs (budget/spend/pending/utilization)",
+    "AI assistant preload context flow (chat screen + Gemini service + context summary)",
+    "Phase 3 gate evidence recorded in docs/PHASE3_GATE_EVIDENCE.md"
+  ],
+  "inProgressFeatures": [
+    "Expense approval workflow completion (without expanding permission matrix)",
+    "Approval notes + history/status transition log",
+    "Phase 5 hardening: conversation history and fallback strategy",
+    "Stricter per-account AI data scoping"
+  ],
+  "openGaps": [
+    "Approval notes + history trail for status transitions",
+    "Flutter user app source",
+    "Automated sync regression test script",
+    "Strict per-account AI context isolation"
+  ],
+  "nextMilestones": [
+    "Complete Phase 4: approval notes/history + dashboard summary",
+    "Harden Phase 5: AI context/history/fallback UX",
+    "Build automated sync regression tests"
+  ],
+  "riskAssumptions": [
+    "Assumption: local auth + Firebase Realtime Database, not Firebase Auth.",
+    "Risk: skipping sync regression tests may cause local/cloud drift.",
+    "Risk: incomplete camera/upload UX may affect demos.",
+    "Risk: broad AI context scope may expose more admin-visible data than intended."
+  ],
+  "phaseGates": [
+    {
+      "phase": "Phase 3 - Sync & Cloudinary gate",
+      "conditions": [
+        {
+          "text": "Tombstone schema (isDeleted/deletedAt) with safe migration support",
+          "done": true
+        },
+        {
+          "text": "Two-way delete sync (local <-> Firebase) based on lastModified",
+          "done": true
+        },
+        {
+          "text": "Periodic background sync with retry/backoff",
+          "done": true
+        },
+        {
+          "text": "Offline -> online merge scenarios documented in the report",
+          "done": true
+        },
+        {
+          "text": "Cloudinary flow has configuration validation and clear error handling",
+          "done": true
+        }
+      ]
+    }
+  ]
+}
+

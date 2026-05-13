@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#C084FC</color>
+    <color name="primary_variant">#020617</color>
+    <color name="secondary">#67E8F9</color>
+    <color name="accent">#FB7185</color>
+    <color name="success">#4ADE80</color>
+    <color name="danger">#FDA4AF</color>
+    <color name="surface_light">#050816</color>
+    <color name="surface_dark">#020617</color>
+    <color name="card_light">#0B1224</color>
+    <color name="card_dark">#050816</color>
+    <color name="card_stroke">#2A3552</color>
+    <color name="text_primary_light">#F8FAFC</color>
+    <color name="text_primary_dark">#D6E4FF</color>
+
+    <color name="neon_blue">#93C5FD</color>
+    <color name="neon_cyan">#67E8F9</color>
+    <color name="neon_purple">#C084FC</color>
+    <color name="neon_pink">#FDA4AF</color>
+    <color name="warning">#FCD34D</color>
+    <color name="info">#7DD3FC</color>
+
+    <color name="project_active">#67E8F9</color>
+    <color name="project_completed">#4ADE80</color>
+    <color name="project_hold">#FCD34D</color>
+
+    <color name="bottom_nav_active">#C084FC</color>
+    <color name="bottom_nav_inactive">#94A3B8</color>
+</resources>
+

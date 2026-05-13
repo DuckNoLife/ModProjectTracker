@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Data extraction rules for backup and transfer. -->
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Add include/exclude entries when backup customization is needed. -->
+    </cloud-backup>
+    <!-- Add device-transfer rules only when needed. -->
+</data-extraction-rules>

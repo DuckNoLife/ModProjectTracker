@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Backup rules for API 31+ devices. -->
+<full-backup-content>
+    <!-- Add include/exclude entries when backup customization is needed. -->
+</full-backup-content>
